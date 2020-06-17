@@ -14,6 +14,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.equalToIgnoringWhiteSpace;
+import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -34,6 +36,10 @@ public class HelloTests {
         mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("Hello World")));
+    }
+    @Test
+    public void getTest1() throws Exception{
+        assertThat("11", equalToIgnoringWhiteSpace("11"));
     }
 
 }
